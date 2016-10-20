@@ -18,6 +18,8 @@ ul{
 
 #boxer{
   border-radius: 50%;
+  border-color: black;
+  border-width: thick;
 }
 
 #title{
