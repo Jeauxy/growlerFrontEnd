@@ -6,6 +6,25 @@ $(document).ready(function() {
   });
 });
 
+function addNewGrowl() {
+  $('#new-growl-form').on('submit', function (e) {
+    e.preventDefault()
+    $.ajax({
+      url: 'http://localhost:3000/growls',
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+      },
+      data: {
+        firstName: $('#student-name').val()
+      }
+    }).done(function (newStudent) {
+      loadStudent(newStudent)
+      $('#growl-name').val('').focus()
+    })
+  })
+}
+
 function loadGrowls() {
   $.ajax({
     url: 'http://localhost:3000/growls',
@@ -21,7 +40,7 @@ function loadGrowls() {
 
 function loadGrowl(growl) {
     var li = $('<li />')
-    li.text(growl.task + ' ')
+    li.text(growl.text + ' ')
     li.data('id', growl._id);
     if (growl.completed){
       li.addClass('done');

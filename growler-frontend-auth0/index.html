@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>Auth0 Front End Practice</title>
+    <title>Growl At Me!</title>
     <script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="https://cdn.auth0.com/js/lock/10.4/lock.min.js"></script>
     <script src="js/script.js" charset="utf-8"></script>
@@ -12,8 +12,9 @@
   <body>
     <h1>Welcome To Growler! <span id="fullName"></span></h1>
     <br>
+    <div id="button">
     <button type="button" id="btn-login">Click Here To Login</button>
-
+    </div>
     <div id="user-info" style="display: none">
       <h1 id="username"></h1>
       <button id="logout">Logout</button>
@@ -21,7 +22,7 @@
       <h1>Growler List</h1>
 
     <form id="new-growler-form">
-      <input id="growl-name" type="text" name="task" placeholder="Add New Growl">
+      <input id="growl-name" type="text" name="growl" placeholder="Add New Growl">
       <input type="submit" value="Add Growl">
     </form>
 
