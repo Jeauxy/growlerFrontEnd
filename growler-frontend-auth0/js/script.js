@@ -9,7 +9,25 @@ $(document).ready(function() {
     e.preventDefault();
     logout();
   });
+
+  $(document).on('click', 'a.delete-link', deleteGrowl)
 });
+
+function deleteGrowl(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  var link = $(this)
+  $.ajax({
+    url: link.attr('href'),
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+    }
+  }).done(function () {
+    link.parent('li').remove();
+  })
+}
+
 
 function showProfile() {
   $('#btn-login').hide();
