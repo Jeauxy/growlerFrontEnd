@@ -1,15 +1,21 @@
 body{
   text-align: center;
+  background-color: black;
+}
+
+#title{
+  padding: 10px 10px;
+  background-color: blue;
 }
 
 h1{
-  background-color: blue;
+  /*background-color: blue;*/
   border-radius: 25px;
-  color: white;
+  font-family: Helvetica;
 }
 
 #button{
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 
