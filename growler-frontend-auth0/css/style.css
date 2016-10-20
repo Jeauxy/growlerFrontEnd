@@ -1,0 +1,32 @@
+body{
+  text-align: center;
+  /*background-color: black;*/
+}
+
+ul{
+  text-align: left;
+}
+
+#boxer{
+  border-radius: 50%;
+}
+
+#title{
+  padding: 10px 10px;
+  background-color: blue;
+}
+
+h1{
+  /*background-color: blue;*/
+  border-radius: 25px;
+  font-family: Helvetica;
+}
+
+#button{
+  padding-top: 20px;
+}
+
+
+#btn-login{
+  border-radius: 10px;
+}
