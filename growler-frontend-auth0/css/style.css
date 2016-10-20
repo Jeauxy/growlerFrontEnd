@@ -1,6 +1,10 @@
 body{
   text-align: center;
-  background-color: black;
+  /*background-color: black;*/
+}
+
+ul{
+  text-align: left;
 }
 
 #boxer{
