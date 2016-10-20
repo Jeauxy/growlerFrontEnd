@@ -11,6 +11,15 @@ $(document).ready(function() {
   });
 
   $(document).on('click', 'a.delete-link', deleteGrowl)
+
+  if (isLoggedIn()){
+    loadGrowls();
+    showProfile();
+    addNewGrowl();
+    $('#welcome').hide();
+  }
+
+
 });
 
 function deleteGrowl(e) {
@@ -46,7 +55,7 @@ function addNewGrowl() {
   $('#new-growl-form').on('submit', function (e) {
     e.preventDefault()
     $.ajax({
-      url: 'http://localhost:3000/growls',
+      url: 'https://mysterious-atoll-77194.herokuapp.com/growls',
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('idToken')
@@ -63,7 +72,7 @@ function addNewGrowl() {
 
 function loadGrowls() {
   $.ajax({
-    url: 'http://localhost:3000/growls',
+    url: 'https://mysterious-atoll-77194.herokuapp.com/growls',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
     }
@@ -83,7 +92,7 @@ function loadGrowl(growl) {
     }
     var deleteLink = $('<a />');
     deleteLink.text('Delete')
-    deleteLink.attr('href','http://localhost:3000/growls/' + growl._id)
+    deleteLink.attr('href','https://mysterious-atoll-77194.herokuapp.com/growls/' + growl._id)
     deleteLink.addClass('delete-link')
 
     li.append(deleteLink)
@@ -113,52 +122,11 @@ function isLoggedIn() {
 }
 
 
-// function isJwtValid(token) {
-//   var token = localStorage.getItem('idToken');
-//   if (!token){
-//     return false;
-//   }
-//   var payload = token.split('.')[1];
-//   payload = atob(payload);
-//   payload = JSON.parse(payload);
-//   exp = payload.exp
-//   console.log(payload);
-//   exp = exp * 1000;
-//   exp = new Date(exp);
-//   console.log(exp);
-//   current = new Date();
-//   console.log(current);
-//
-//   if (exp < current){
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
-// function toggleGrowl(e) {
-//   console.log(toggleGrowl);
-//   e.preventDefault();
-//   var li = $(e.currentTarget)
-//   var url = 'http://localhost:3000/students/' + li.data('id')
-//   var newCompleted = !li.hasClass('done')
-//   $.ajax({
-//     url: url,
-//     method: 'PUT',
-//     data: {
-//       completed: newCompleted
-//     },
-//     headers: {
-//       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
-//     }
-//   }).done(function () {
-//     li.toggleClass('done')
-//   })
-// }
-
-function logout() {
-  localStorage.removeItem('idToken')
-  window.location.href = '/';
+function isJwtValid(token) {
+  var token = localStorage.getItem('idToken');
+  if (!token){
+    return false;
+  }
 }
 
 
