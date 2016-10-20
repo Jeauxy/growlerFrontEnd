@@ -19,7 +19,22 @@ function loadGrowls() {
 })
 }
 
+function loadGrowl(growl) {
+    var li = $('<li />')
+    li.text(growl.task + ' ')
+    li.data('id', growl._id);
+    if (growl.completed){
+      li.addClass('done');
+    }
+    var deleteLink = $('<a />');
+    deleteLink.text('Delete')
+    deleteLink.attr('href','http://localhost:3000/growls/' + growl._id)
+    deleteLink.addClass('delete-link')
 
+    li.append(deleteLink)
+
+    $('#growls').append(li);
+  }
 
 var lock = new
 //1. Client ID, 2. Client Domain, 3. Oject of Attr
