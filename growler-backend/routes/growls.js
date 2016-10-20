@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Growl = require('../models/growl')
+const _ = require('lodash');
 
 router.use(function (req, res, next) {
   req.body = _.pick(req.body, ['text'])
