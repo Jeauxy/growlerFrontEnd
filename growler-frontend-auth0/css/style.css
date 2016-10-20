@@ -1,6 +1,15 @@
 body{
   text-align: center;
-  /*background-color: black;*/
+  background-color: black;
+}
+
+li{
+  color: white;
+}
+
+#growl-name{
+  padding-bottom: 50px;
+  padding-left: 50px;
 }
 
 ul{
@@ -20,6 +29,7 @@ h1{
   /*background-color: blue;*/
   border-radius: 25px;
   font-family: Helvetica;
+  color: white;
 }
 
 #button{
