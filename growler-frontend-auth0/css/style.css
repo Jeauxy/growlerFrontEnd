@@ -3,6 +3,10 @@ body{
   background-color: black;
 }
 
+#boxer{
+  border-radius: 50%;
+}
+
 #title{
   padding: 10px 10px;
   background-color: blue;
