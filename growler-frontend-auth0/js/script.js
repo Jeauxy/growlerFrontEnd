@@ -19,7 +19,6 @@ $(document).ready(function() {
     $('#welcome').hide();
   }
 
-
 });
 
 function deleteGrowl(e) {
