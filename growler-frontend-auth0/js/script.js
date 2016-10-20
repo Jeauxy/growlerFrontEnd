@@ -6,6 +6,20 @@ $(document).ready(function() {
   });
 });
 
+function loadGrowls() {
+  $.ajax({
+    url: 'http://localhost:3000/growls',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+    }
+  }).done(function (data) {
+    data.forEach(function (datum) {
+      loadGrowl(datum)
+  })
+})
+}
+
+
 
 var lock = new
 //1. Client ID, 2. Client Domain, 3. Oject of Attr
@@ -21,7 +35,7 @@ lock.on('authenticated', function (authResult) {
   console.log(authResult);
   localStorage.setItem('idToken', authResult.idToken);
   console.log('Logged In!');
-  // loadGrowls();
+  loadGrowls();
 });
 
 function logout() {
