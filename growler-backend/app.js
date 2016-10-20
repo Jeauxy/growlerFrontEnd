@@ -9,15 +9,15 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var jwt = require('express-jwt');
+// var jwt = require('express-jwt');
 var growls = require('./routes/growls');
 
 mongoose.connect(process.env.DB_CONN)
 
-var jwtCheck = jwt({
-  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
-  audience: process.env.AUTH0_CLIENT_ID
-});
+// var jwtCheck = jwt({
+//   secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
+//   audience: process.env.AUTH0_CLIENT_ID
+// });
 
 var app = express();
 
@@ -36,7 +36,7 @@ app.use(cors())
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/growls', jwtCheck);
+// app.use('/growls', jwtCheck);
 app.use('/growls', growls);
 
 // catch 404 and forward to error handler
